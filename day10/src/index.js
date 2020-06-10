@@ -1,5 +1,5 @@
 // <⚠️ DONT DELETE THIS ⚠️>
-// import "./styles.css";
+import "./styles.css";
 // <⚠️ /DONT DELETE THIS ⚠️>
 const form = document.querySelector("form"),
   range = form.querySelector(".range"),
@@ -10,11 +10,10 @@ const form = document.querySelector("form"),
 
 function paintResult() {
   const randomNum = createRandomNum(range.value);
-  const inputNum = textInput.value;
-  console.log(inputNum);
-  if (inputNum <= range.value && inputNum !== "") {
+  const inputNum = Number(textInput.value);
+  if (inputNum <= range.value && inputNum >= 0 && inputNum !== "") {
     curentText.textContent = `You chose : ${inputNum}, the machine chose : ${randomNum}.`;
-    if (Number(inputNum) === randomNum) {
+    if (inputNum === randomNum) {
       resultText.textContent = `You Win 🏆`;
     } else {
       resultText.textContent = `You Lose 😥`;
