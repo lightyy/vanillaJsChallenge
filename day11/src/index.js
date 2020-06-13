@@ -4,10 +4,18 @@
 const output = document.querySelector(".output");
 
 const OPERATOR = {
-  plus: function(a, b) {return a + b},
-  minus: function(a, b) {return a - b},
-  multiply: function(a, b) {return a * b},
-  divison: function(a, b) {return a / b},
+  plus: function (a, b) {
+    return a + b;
+  },
+  minus: function (a, b) {
+    return a - b;
+  },
+  multiply: function (a, b) {
+    return a * b;
+  },
+  divison: function (a, b) {
+    return a / b;
+  },
 };
 
 let RESULT = "",
@@ -16,17 +24,19 @@ let RESULT = "",
   CAN_CALC = false;
 
 function calculate(btn) {
+  console.log(RESULT);
   const name = btn.className;
 
   if (name == "btn num") {
-    const num = btn.textContent;
     if (FLAG) {
-      output.textContent = num;
+      output.textContent = btn.textContent;
       FLAG = false;
     } else {
       output.textContent = output.textContent + btn.textContent;
     }
-    if (output.textContent === "") FLAG = true;
+    if (output.textContent === "") {
+      FLAG = true;
+    }
   } else if (name == "btn operator") {
     equal();
     if (!CAN_CALC) {
@@ -43,6 +53,7 @@ function calculate(btn) {
   } else if (name == "btn equal") {
     equal();
   }
+  console.log(RESULT);
 }
 
 function equal() {
